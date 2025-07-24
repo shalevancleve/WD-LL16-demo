@@ -4,7 +4,7 @@
 
 /* Basic page styling */
 body {
-  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-family: "Space Grotesk", Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #262632;
@@ -65,9 +65,9 @@ body {
 }
 
 .nav-links li .get-in-touch:hover {
-  border-color: #4F5066;
+  border-color: #4f5066;
   color: #262632;
-  background-color: #4F5066;
+  background-color: #4f5066;
 }
 
 /* Hero content styles */
@@ -78,7 +78,7 @@ body {
 }
 
 .hero-content h1 {
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   color: #fff;
   font-size: 124px;
   font-weight: 900;
@@ -97,7 +97,7 @@ body {
 }
 
 button {
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .hero-buttons {
@@ -131,16 +131,14 @@ button {
   color: #fff;
   border: 2px solid transparent;
   border-radius: 8px;
-   background-image: 
-    linear-gradient(#1f1f2e, #1f1f2e),
-    linear-gradient(to right, #3bb0ff, #90ff00);
+  background-image: linear-gradient(#1f1f2e, #1f1f2e), linear-gradient(to right, #3bb0ff, #90ff00);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
 
 .secondary-btn:hover {
-   background-image: linear-gradient(to right, #3bb0ff, #90ff00);
-   color: #111;
+  background-image: linear-gradient(to right, #3bb0ff, #90ff00);
+  color: #111;
 }
 
 /* Style for the heading */
@@ -177,7 +175,7 @@ h1 {
   background-color: #fff;
   border-radius: 4px;
   min-height: 40px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Chatbot icon button styles */
@@ -193,7 +191,7 @@ h1 {
   cursor: pointer;
   z-index: 1000;
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,7 +199,7 @@ h1 {
 }
 
 .chatbot-btn:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
   background: #2699e6;
 }
 
@@ -216,7 +214,7 @@ h1 {
   color: #fff;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
   padding: 20px 16px 16px 16px;
   z-index: 1100;
   display: none; /* Hidden by default */
@@ -236,7 +234,7 @@ h1 {
 .chatbot-panel h2 {
   font-size: 22px;
   margin: 0 0 8px 0;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: "Inter", Arial, sans-serif;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -254,7 +252,7 @@ h1 {
   border: none;
   padding: 8px;
   font-size: 16px;
-  font-family: 'Space Grotesk', Arial, sans-serif;
+  font-family: "Space Grotesk", Arial, sans-serif;
   resize: none;
   margin-bottom: 8px;
 }
@@ -314,17 +312,85 @@ h1 {
   overflow-y: auto;
   font-size: 15px;
   margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Chat bubbles for WayChat */
+.chat-bubble {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 18px;
+  margin-bottom: 8px;
+  max-width: 80%;
+  word-break: break-word;
+  font-size: 15px;
+  line-height: 1.5;
+  clear: both;
+}
+
+.user-message {
+  background: #3bb0ff;
+  color: #fff;
+  align-self: flex-end;
+  margin-left: 20%;
+  margin-right: 0;
+  text-align: right;
+  border-bottom-right-radius: 6px;
+}
+
+.assistant-message {
+  background: #fff;
+  color: #23232d;
+  align-self: flex-start;
+  margin-right: 20%;
+  margin-left: 0;
+  text-align: left;
+  border-bottom-left-radius: 6px;
+}
+
+/* Thinking animation */
+.thinking {
+  font-style: italic;
+  color: #888;
+  background: #f3f3f7;
+  border: 1px dashed #bfc0c7;
+}
+
+.thinking-dots span {
+  animation: blink 1.2s infinite both;
+  opacity: 0.5;
+  font-size: 18px;
+  margin-right: 2px;
+}
+.thinking-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.thinking-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.5;
+  }
+  40% {
+    opacity: 1;
+  }
 }
 
 /* Make sure the Material Icons font is used and sized correctly */
 .material-icons-outlined.chatbot-icon {
-  font-family: 'Material Icons Outlined', 'Material Icons', Arial, sans-serif !important;
+  font-family: "Material Icons Outlined", "Material Icons", Arial, sans-serif !important;
   font-size: 32px !important;
   color: #fff;
   line-height: 1;
   user-select: none;
   pointer-events: none;
-  font-variation-settings: 'wght' 400;
+  font-variation-settings: "wght" 400;
 }
 
 /* Responsive styles */
@@ -379,7 +445,8 @@ h1 {
     align-items: flex-start;
     gap: 0;
   }
-  .nav-links li a, .get-in-touch {
+  .nav-links li a,
+  .get-in-touch {
     font-size: 16px;
     display: block;
   }
