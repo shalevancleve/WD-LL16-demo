@@ -59,9 +59,11 @@ function addMessage(text, sender, isThinking = false) {
     msgDiv.className = "chat-bubble assistant-message";
     // Format assistant messages with line breaks for readability
     msgDiv.innerHTML = text.replace(/\n{2,}/g, "<br><br>").replace(/(?<!<br>)\n/g, "<br>");
-  } else if (isThinking) {
+  }
+
+  if (isThinking) {
     msgDiv.className = "chat-bubble assistant-message thinking";
-    msgDiv.innerHTML = `<span class="thinking-dots"><span>.</span><span>.</span><span>.</span></span> Thinking...`;
+    msgDiv.innerHTML = `<span class="thinking-dots">Thinking...</span>`;
   }
   chatbotMessages.appendChild(msgDiv);
   chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -83,6 +85,9 @@ async function sendMessage() {
   // Show "Thinking..." animation
   isWaiting = true;
   const thinkingDiv = addMessage("", "assistant", true);
+
+  // Force the browser to render the "Thinking..." message before continuing
+  await new Promise(requestAnimationFrame);
 
   const apiUrl = "https://api.openai.com/v1/chat/completions";
   const headers = {
